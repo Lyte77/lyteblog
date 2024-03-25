@@ -1,4 +1,4 @@
-from django.forms import ModelForm
+from django.forms import ModelForm, forms
 from .models import Post
 
 class PostForm(ModelForm):
@@ -6,3 +6,5 @@ class PostForm(ModelForm):
         model = Post
         fields = ['title', 'content', 'author']
 
+
+    
