@@ -1,10 +1,211 @@
-{% extends 'blog/base.html' %}
+{% extends 'blog/index.html' %}
+{% load static %}
+
+
 
 {% block content %}
+
+
+                    
+
+ <!-- Page Content -->
+    <!-- Banner Starts Here -->
+    <div class="heading-page header-text">
+        <section class="page-heading">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="text-content">
+                  <h4>Post Details</h4>
+                  <h2>{{ posts.title }}</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      
+      <!-- Banner Ends Here -->
+  
+     
+  
+  
+      <section class="blog-posts grid-system">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8">
+              <div class="all-blog-posts">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="blog-post">
+                      <div class="blog-thumb">
+                        <img src="assets/images/blog-post-02.jpg" alt="">
+                      </div>
+                      <div class="down-content">
+                        <span>Categorey</span>
+                        <a href="#"><h4>{{ posts.title }}</h4></a>
+                        <ul class="post-info">
+                          <li><a href="#">{{ posts.author }}</a></li>
+                          <li><a href="#">{{ posts.created }}</a></li>
+                          <li><a href="#">10 Comments</a></li>
+                        </ul>
+                        <p>
+                            {{ posts.content }}
+                        <br><br></p>
+                        <div class="post-options">
+                          <div class="row">
+                            <div class="col-6">
+                              <ul class="post-tags">
+                                <li><i class="fa fa-tags"></i></li>
+                                <li><a href="#">Best Templates</a>,</li>
+                                <li><a href="#">TemplateMo</a></li>
+                              </ul>
+                            </div>
+                            <div class="col-6">
+                              <ul class="post-share">
+                                <li><i class="fa fa-share-alt"></i></li>
+                                <li><a href="#">Facebook</a>,</li>
+                                <li><a href="#"> Twitter</a></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              <!-- {% for comment in comments %}
+    <p>{{ comment.name }} made a comment</p>
+    <p>{{ comment.comment }}</p>
+{% endfor %} -->
+                  <div class="col-lg-12">
+                    <div class="sidebar-item comments">
+                      <div class="sidebar-heading">
+                        <h2>4 comments</h2>
+                      </div>
+                      {% for comment in comments %}
+                      <div class="content">
+                        <ul>
+                          <li>
+                            <div class="author-thumb">
+                              <img src="assets/images/comment-author-01.jpg" alt="">
+                            </div>
+                            <div class="right-content">
+                             <h4>{{ comment.name }}<span>{{ comment.commented }} </span></h4>
+                              <p> {{ comment.comment }}</p>
+                            </div>
+                          </li>
+                          <!-- <li class="replied">
+                            <div class="author-thumb">
+                              <img src="assets/images/comment-author-02.jpg" alt="">
+                            </div>
+                            <div class="right-content">
+                              <h4>Thirteen Man<span>May 20, 2020</span></h4>
+                              <p>In porta urna sed venenatis sollicitudin. Praesent urna sem, pulvinar vel mattis eget.</p>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="author-thumb">
+                              <img src="assets/images/comment-author-03.jpg" alt="">
+                            </div>
+                            <div class="right-content">
+                              <h4>Belisimo Mama<span>May 16, 2020</span></h4>
+                              <p>Nullam nec pharetra nibh. Cras tortor nulla, faucibus id tincidunt in, ultrices eget ligula. Sed vitae suscipit ligula. Vestibulum id turpis volutpat, lobortis turpis ac, molestie nibh.</p>
+                            </div>
+                          </li>
+                          <li class="replied">
+                            <div class="author-thumb">
+                              <img src="assets/images/comment-author-02.jpg" alt="">
+                            </div>
+                            <div class="right-content">
+                              <h4>Thirteen Man<span>May 22, 2020</span></h4>
+                              <p>Mauris sit amet justo vulputate, cursus massa congue, vestibulum odio. Aenean elit nunc, gravida in erat sit amet, feugiat viverra leo.</p>
+                            </div>
+                          </li> -->
+                        </ul>
+                      </div>
+                      {% endfor %}
+                    </div>
+                  </div>
+                  <div class="col-lg-12">
+                    <div class="sidebar-item submit-comment">
+                      <div class="sidebar-heading">
+                        <h2>Your comment</h2>
+                      </div>
+                      <form action="" method="post">
+                        {{ comment_form.as_p }}
+                        {% csrf_token %}
+                    
+                        <input type="submit" value="Submit">
+                    
+                    </div>
+                  </div>
+                  <div class="col-lg-12">
+                    <div class="sidebar-item recent-posts">
+                      <div class="sidebar-heading">
+                        <h2>Recent Posts</h2>
+                      </div>
+                      <div class="content">
+                        <ul>
+                          <li><a href="post-details.html">
+                            <h5>Vestibulum id turpis porttitor sapien facilisis scelerisque</h5>
+                            <span>May 31, 2020</span>
+                          </a></li>
+                          <li><a href="post-details.html">
+                            <h5>Suspendisse et metus nec libero ultrices varius eget in risus</h5>
+                            <span>May 28, 2020</span>
+                          </a></li>
+                          <li><a href="post-details.html">
+                            <h5>Swag hella echo park leggings, shaman cornhole ethical coloring</h5>
+                            <span>May 14, 2020</span>
+                          </a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-12">
+                    <div class="sidebar-item categories">
+                      <div class="sidebar-heading">
+                        <h2>Categories</h2>
+                      </div>
+                      <div class="content">
+                        <ul>
+                          <li><a href="#">- Nature Lifestyle</a></li>
+                          <li><a href="#">- Awesome Layouts</a></li>
+                          <li><a href="#">- Creative Ideas</a></li>
+                          <li><a href="#">- Responsive Templates</a></li>
+                          <li><a href="#">- HTML5 / CSS3 Templates</a></li>
+                          <li><a href="#">- Creative &amp; Unique</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-12">
+                    <div class="sidebar-item tags">
+                      <div class="sidebar-heading">
+                        <h2>Tag Clouds</h2>
+                      </div>
+                      <div class="content">
+                        <ul>
+                          <li><a href="#">Lifestyle</a></li>
+                          <li><a href="#">Creative</a></li>
+                          <li><a href="#">HTML5</a></li>
+                          <li><a href="#">Inspiration</a></li>
+                          <li><a href="#">Motivation</a></li>
+                          <li><a href="#">PSD</a></li>
+                          <li><a href="#">Responsive</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+  
  
-    <h1>{{ posts.title }}</h1>
-    <p>{{ posts.created }}</p>
-    <p>{{ posts.author }}</p>
-    <hr>
-    <p>{{ posts.content }}</p>
+ 
+
+    
 {%  endblock  %}

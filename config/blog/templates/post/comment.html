@@ -1,0 +1,9 @@
+{% extends 'blog/index.html' %}
+
+{% block content %}
+  <form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Comment">
+  </form>
+{% endblock %}
